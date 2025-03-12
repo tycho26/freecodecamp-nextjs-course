@@ -1,1 +1,1 @@
-# freecodecamp-nextjs-course-
+# freecodecamp-nextjs-course
