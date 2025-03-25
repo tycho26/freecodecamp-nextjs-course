@@ -3,19 +3,26 @@ import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 
-import EventCard from "@/src/components/event-card";
+import EventCategoryItem from "@/src/components/event-category-item";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
-
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
-export default function Home() {
+
+export default function Home({categories}) {
+  
+  const eventCatsDOM = []
+
+  categories.forEach(element => {
+    eventCatsDOM.push(<EventCategoryItem category={element}/>)
+  });
+  
   return (
     <>
       <Head>
@@ -35,9 +42,7 @@ export default function Home() {
             </nav>
           </header>
         <main className={styles.main}>
-          <EventCard location="London"/>
-          <EventCard location="Barcelona"/>
-          <EventCard location="San Fransico"/>
+          {eventCatsDOM}
         </main>
         <footer className={styles.footer}>
           
@@ -45,4 +50,11 @@ export default function Home() {
       </div>
     </>
   );
+}
+
+
+export async function getStaticProps(){
+  const {events_categories} = await import("../data/data.json")
+
+  return {props:{categories:events_categories}}
 }

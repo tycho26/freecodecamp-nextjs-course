@@ -1,6 +1,6 @@
 import EventCard from "@/src/components/event-card"
 
-function Events() {
+function EventCats() {
 
     return (
         <div>
@@ -12,4 +12,4 @@ function Events() {
     )
 }
 
-export default Events
+export default EventCats
