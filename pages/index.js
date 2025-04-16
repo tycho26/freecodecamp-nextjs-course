@@ -32,22 +32,10 @@ export default function Home({categories}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div
-        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
-      >
-          <header>
-            <nav>
-              <Link href="/">Home</Link>
-              <Link href="/events">Events</Link>
-              <Link href="/about-us">About Us</Link>
-            </nav>
-          </header>
+      <div className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}>
         <main className={styles.main}>
           {eventCatsDOM}
         </main>
-        <footer className={styles.footer}>
-          
-        </footer>
       </div>
     </>
   );
